@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.currencyconvertor.viewModels.HomeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.HomeActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="5dp"
+            android:background="#fe817f"
+            android:elevation="16dp"
+            app:layout_constraintBottom_toTopOf="@id/top_view"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="Currency Converter"
+            app:titleTextAppearance="@style/TextAppearance.AppCompat.Large"
+            app:titleTextColor="@color/white" />
+        <View
+            android:id="@+id/top_view"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="#fe817f"
+            app:layout_constraintTop_toBottomOf="@+id/toolBar" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:layout_constraintTop_toBottomOf="@id/top_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/text_idq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dinar"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="@+id/editq"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/editq"
+            app:layout_constraintTop_toTopOf="@+id/editq" />
+        <TextView
+            android:id="@+id/text_d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dollar"
+            android:textColor="#fe817f"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="@+id/editu"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/editu"
+            app:layout_constraintTop_toTopOf="@+id/editu" />
+
+        <EditText
+            android:id="@+id/editq"
+            style="@style/editTextStyle"
+            android:textColor="@color/white"
+            tools:text="20"
+            android:text="@={viewModel.valueQ}"
+            app:layout_constraintBottom_toBottomOf="@+id/top_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/top_view" />
+
+        <EditText
+            android:id="@+id/editu"
+            style="@style/editTextStyle"
+            android:text="@={viewModel.valueU}"
+            android:textColor="#fe817f"
+            tools:text="20"
+            app:layout_constraintBottom_toBottomOf="@id/view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/top_view" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_transfer"
+            android:rotation="90"
+            android:layout_margin="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/top_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/top_view" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
